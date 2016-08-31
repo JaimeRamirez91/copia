@@ -1,5 +1,6 @@
 
 package com.entidades;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -14,9 +15,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "PRODUCTO")
-public class Producto {
+@XmlRootElement
+public class Producto implements Serializable{
     @Id
     @GeneratedValue
     @Column(name = "IDPRODUCTO")
@@ -38,7 +41,11 @@ public class Producto {
     public Producto(){
     
     }
-
+      public Producto(String pronombre, Double proprecio, Integer stock) {
+       this.proNombre = pronombre;
+       this.proPrecio = proprecio;
+       this.stock = stock;
+    }
     public long getIdProducto() {
         return idProducto;
     }
@@ -77,8 +84,6 @@ public class Producto {
 
     public void setStock(int stock) {
         this.stock = stock;
-    }
- 
-    
+    }    
     
 }

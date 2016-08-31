@@ -10,7 +10,7 @@
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <property name="hibernate.hbm2ddl.auto">create-drop</property>
+    
     <mapping class="com.entidades.Producto" />
      <mapping class="com.entidades.Proveedor" />
      <mapping class="com.entidades.Categoria" />

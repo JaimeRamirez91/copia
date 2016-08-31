@@ -1,5 +1,6 @@
 package com.entidades;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -9,10 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "CATEGORIA")
-public class Categoria {
+@XmlRootElement
+public class Categoria implements Serializable{
     @Id
     @GeneratedValue
     @Column(name = "IDCATEGORIA")
@@ -25,7 +28,17 @@ public class Categoria {
     private Set<DetalleProducto> detalleproducto = new HashSet<DetalleProducto>(0);
      //   private Set facturas = new HashSet(0);
      //     private Set productos = new HashSet(0);
- 
+    public Categoria(){
+    }
+    public Categoria(String categoria, Set detalleproductos) {
+       this.Categoria = categoria;
+       this.detalleproducto = detalleproductos;
+    }
+    public Categoria(long id,String categoria) {
+       this.Categoria = categoria;
+       this.idCategoria=id;
+      
+    }
     public long getIdCategoria() {
         return idCategoria;
     }

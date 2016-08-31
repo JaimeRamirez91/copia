@@ -11,6 +11,23 @@
         </h:head>
 
         <h:body>
+            <h:form>
+
+                <p:panelGrid id="Grid" columns="2">
+                     <!--
+                    <h:outputText value="Nombre del producto"/>
+                    <p:inputText  value="#{DetalleProductoBeen.listadelatte}"/>
+                    <h:outputText value="Precio"/>
+                    <p:inputText value="#{DetalleProductoBeen.producto.proPrecio}"/>
+                    <h:outputText value="Stock"/>
+                    <p:inputText value="#{DetalleProductoBeen.producto.stock}"/>
+                     <h:outputText value="Proveedor"/>
+                     <p:inputText value="#{DetalleProductoBeen.detalle.categoria.idCategoria}" />
+                    -->
+                    <p:commandButton value="gregar" actionListener="#{DetalleProductoBeen.nuevodetalle()}" update=":frmMostrarProductos:tablaProductos" />
+                </p:panelGrid>
+
+            </h:form>
             <h:form id="frmMostrarProductos">
                 <p:dataTable id="tablaProductos" paginator="true" paginatorPosition="top"
                              var="ct" value="#{DetalleProductoBeen.listadelatte}" rows="10">
@@ -20,6 +37,10 @@
                     <p:column headerText="Producto">
                         <h:outputText value="#{ct.producto.proNombre}"/>
                     </p:column>
+                    <p:column headerText="Proveedor">
+                        <h:outputText value="#{ct.proveedor.proNombre}"/>
+                    </p:column>
+                    
 
                 </p:dataTable>
             </h:form>

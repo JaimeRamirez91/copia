@@ -1,5 +1,6 @@
 package com.entidades;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -12,10 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "PROVEEDOR")
-public class Proveedor {
+@XmlRootElement
+public class Proveedor implements Serializable{
 
     @Id
     @GeneratedValue
@@ -44,6 +47,13 @@ public class Proveedor {
     public Proveedor() {
 
     }
+       public Proveedor(long id,String protelefono, String prodireccion, String pronombre) {
+       this.Telefono = protelefono;
+       this.proDireccion = prodireccion;
+       this.proNombre = pronombre;
+       this.Idproveedor=id;
+    }
+   
 
     public long getIdproveedor() {
         return Idproveedor;

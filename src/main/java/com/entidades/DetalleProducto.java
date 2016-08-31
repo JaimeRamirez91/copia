@@ -1,5 +1,6 @@
 
 package com.entidades;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -12,10 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "DETALLEPRODUCTO")
-public class DetalleProducto {
+@XmlRootElement
+public class DetalleProducto implements Serializable{
     @Id
     @GeneratedValue
     @Column(name = "IDDETALLE")
@@ -26,13 +29,13 @@ public class DetalleProducto {
     @ManyToOne
     @JoinColumn(name="IDPROVEEDOR")
     @org.hibernate.annotations.ForeignKey(name = "FK_PROVEEDOR_ID")
+    //private Proveedor proveedor;
     private Proveedor proveedor;
-    
     //Categoria
     @ManyToOne
     @JoinColumn(name="IDCATEGORIA")
     @org.hibernate.annotations.ForeignKey(name = "FK_PROVEEDOR_ID")
-    private Categoria categoria;
+     private Categoria categoria;
     
     //bidireccional 
     @OneToOne(cascade=CascadeType.ALL)
@@ -45,6 +48,12 @@ public class DetalleProducto {
     public DetalleProducto(){
         
     }
+    
+    public DetalleProducto(Categoria categoria, Double preciocompra, Proveedor proveedor){
+        this.categoria = categoria;
+        this.precioCompra=preciocompra;
+        this.proveedor = proveedor;
+        }
 
     public long getIdDetalle() {
         return IdDetalle;
@@ -85,6 +94,5 @@ public class DetalleProducto {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
-    
-    
+ 
 }
