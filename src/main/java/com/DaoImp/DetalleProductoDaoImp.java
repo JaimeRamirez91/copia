@@ -48,7 +48,7 @@ public class DetalleProductoDaoImp implements DetalleProductoDao {
         try {
             Categoria categoria =new Categoria(1L,"categoria");
             Proveedor  proveedor = new Proveedor(1L,"1234","direccion","proveedor");
-            Producto producto = new Producto("prueba",2.2,1);
+            Producto producto = new Producto("prueba2",2.2,1);
           //  producto.setDetalleproducto(detalle); 
             detalle.setProducto(producto);
             detalle.setCategoria(categoria);

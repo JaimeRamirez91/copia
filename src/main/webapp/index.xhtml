@@ -12,22 +12,37 @@
 
         <h:body>
             <h:form>
-
-                <p:panelGrid id="Grid" columns="2">
-                     <!--
-                    <h:outputText value="Nombre del producto"/>
-                    <p:inputText  value="#{DetalleProductoBeen.listadelatte}"/>
-                    <h:outputText value="Precio"/>
-                    <p:inputText value="#{DetalleProductoBeen.producto.proPrecio}"/>
-                    <h:outputText value="Stock"/>
-                    <p:inputText value="#{DetalleProductoBeen.producto.stock}"/>
-                     <h:outputText value="Proveedor"/>
-                     <p:inputText value="#{DetalleProductoBeen.detalle.categoria.idCategoria}" />
-                    -->
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputLabel value="Nombre producto:" />
+                    <p:inputText  value="#{DetalleProductoBeen.producto.proNombre}"/>
+                    <h:outputLabel value="precio:"/>
+                    <p:inputNumber  value="#{DetalleProductoBeen.producto.proPrecio}"/>
+                    
+                   
+                    <h:outputLabel for="listaCategoria" value="Categoria:" />
+                    <p:selectOneMenu id="listaCategoria" filter="true" filterMatchMode="startsWith"> 
+                            <f:selectItem itemLabel="--Seleccione--" itemValue="" />
+                            <f:selectItems value="#{DetalleProductoBeen.listaCategoria}" var="categoria" 
+                                           itemLabel="#{categoria.categoria}" itemValue="#{categoria.idCategoria}" />
+                    </p:selectOneMenu>
+                   
+                    <h:outputLabel for="listaProveedor" value="Proveedor:" />
+                    <p:selectOneMenu id="listaProveedor" filter="true" filterMatchMode="startsWith">
+                            <f:selectItem itemLabel="--Seleccione--" itemValue="" />
+                            <f:selectItems value="#{DetalleProductoBeen.listaProveedor}" var="Proveedor" 
+                                           itemLabel="#{Proveedor.proNombre}" itemValue="#{Proveedor.idproveedor}" />
+                    </p:selectOneMenu>
+                    <p:commandLink value="Submit"  />
+                </h:panelGrid>
+            
+                <p:panelGrid id="Grid" columns="2">   
                     <p:commandButton value="gregar" actionListener="#{DetalleProductoBeen.nuevodetalle()}" update=":frmMostrarProductos:tablaProductos" />
                 </p:panelGrid>
-
+             
             </h:form>
+            
+            
+            
             <h:form id="frmMostrarProductos">
                 <p:dataTable id="tablaProductos" paginator="true" paginatorPosition="top"
                              var="ct" value="#{DetalleProductoBeen.listadelatte}" rows="10">
@@ -40,7 +55,7 @@
                     <p:column headerText="Proveedor">
                         <h:outputText value="#{ct.proveedor.proNombre}"/>
                     </p:column>
-                    
+
 
                 </p:dataTable>
             </h:form>

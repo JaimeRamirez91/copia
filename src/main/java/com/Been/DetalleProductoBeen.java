@@ -5,10 +5,16 @@
  */
 package com.Been;
 
+import com.DaoImp.CategoriaDaoImp;
 import com.DaoImp.DetalleProductoDaoImp;
+import com.DaoImp.ProveedorDaoImp;
+import com.DaoInterface.CategoriaDao;
 import com.DaoInterface.DetalleProductoDao;
+import com.DaoInterface.ProveedorDao;
+import com.entidades.Categoria;
 import com.entidades.DetalleProducto;
 import com.entidades.Producto;
+import com.entidades.Proveedor;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Named;
@@ -20,6 +26,8 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class DetalleProductoBeen implements Serializable{
      List<DetalleProducto> listadelatte;
+     List<Categoria> listaCategoria;
+     List<Proveedor> listaProveedor;
      private DetalleProducto detalle = new DetalleProducto();
      private Producto producto = new Producto();
 
@@ -54,6 +62,26 @@ public class DetalleProductoBeen implements Serializable{
 
     public void setProducto(Producto producto) {
         this.producto = producto;
+    }
+
+    public List<Categoria> getListaCategoria() {
+        CategoriaDao cDao= new CategoriaDaoImp();
+        listaCategoria =  cDao.listarCategoria();
+        return listaCategoria;
+    }
+
+    public void setListaCategoria(List<Categoria> listaCategoria) {
+        this.listaCategoria = listaCategoria;
+    }
+
+    public List<Proveedor> getListaProveedor() {
+        ProveedorDao pDao = new ProveedorDaoImp(); 
+        listaProveedor = pDao.listarProveedor();
+        return listaProveedor;
+    }
+
+    public void setListaProveedor(List<Proveedor> listaProveedor) {
+        this.listaProveedor = listaProveedor;
     }
 
     
