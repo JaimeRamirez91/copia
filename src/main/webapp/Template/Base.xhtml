@@ -17,28 +17,32 @@
 
         <div id="top">
             <ui:insert name="top">
-                 <h:form>  
-                <p:menubar>
-                    <p:submenu label="Inicio" icon="ui-icon-pencil">
-                        <p:menuitem value="Pagina principal" icon="ui-icon-arrowreturnthick-1-w" outcome="/Vistas/Inicio/Inicio.xhtml"/>
-                    </p:submenu>
-                    <p:submenu label="Producto" icon="ui-icon-pencil">
-                        <p:menuitem value="Ver y Editar" icon="ui-icon-arrowreturnthick-1-w" outcome="/Vistas/Producto/Producto.xhtml"/>
-                    </p:submenu>
+                <h:form>  
+                    <p:menubar styleClass="menubar">
+
+                        <p:submenu label="Inicio" icon="ui-icon-home" styleClass="submenubar2">
+                            <p:menuitem value="Ir inico" styleClass="submenubar2" icon="ui-icon-home" outcome="/Vistas/Inicio/Inicio.xhtml"/>
+                            
+                        </p:submenu>
+ 
+                        <p:submenu label="Administración" styleClass="submenubar2">
+                            <p:menuitem value="Producto" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Producto/Producto.xhtml"/>
+                            <p:menuitem value="Categorias" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Categorias/Categorias.xhtml"/>
+                        </p:submenu>
                     </p:menubar>
-                    </h:form>
+                </h:form>
             </ui:insert>
         </div>
-
+        <br></br>
         <div id="content" class="center_content">
             <ui:insert name="content">Content</ui:insert>
         </div>
 
         <div id="bottom">
             <center>
-            <ui:insert name="bottom"><h1>Ing. Jaime Ramírez</h1></ui:insert>
+                <ui:insert name="bottom"><h1>Ing. Jaime Ramírez</h1></ui:insert>
             </center> 
-         </div>
+        </div>
 
     </h:body>
 

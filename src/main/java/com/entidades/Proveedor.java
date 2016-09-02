@@ -53,7 +53,11 @@ public class Proveedor implements Serializable{
        this.proNombre = pronombre;
        this.Idproveedor=id;
     }
-   
+    public Proveedor(long id, String pronombre) {
+       
+       this.proNombre = pronombre;
+       this.Idproveedor=id;
+    }
 
     public long getIdproveedor() {
         return Idproveedor;
