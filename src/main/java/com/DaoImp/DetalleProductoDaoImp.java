@@ -87,4 +87,50 @@ public class DetalleProductoDaoImp implements DetalleProductoDao {
         }
     }
 
+    @Override
+    public void uodateDetalle(DetalleProducto detalle, Producto prod, Proveedor proveedor, Categoria categoria) {
+        Session session = null;
+        try {
+            /*
+            ---------------------------------------------------------------------------
+            Es para realizar pruebas de insercion sin necesidad de utilisar la cista
+            ---------------------------------------------------------------------------
+            Categoria categoria =new Categoria(1L,"categoria");
+            Proveedor  proveedor = new Proveedor(1L,"1234","direccion","proveedor");
+            Producto producto = new Producto("prueba2",2.2,1);
+            --------------------------------------------------------------------------
+            */
+            
+            detalle.setProducto(prod);
+            detalle.setCategoria(categoria);
+            detalle.setProveedor(proveedor);
+            /*
+            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println("categoria");
+            System.out.println(detalle.getCategoria().getIdCategoria());
+            System.out.println("proveedor");
+            System.out.println(detalle.getProveedor().getIdproveedor());
+            System.out.println("nombre producto");
+            System.out.println(detalle.getProducto().getProNombre());
+           System.out.println("-----------------------------------------------------------------------------------");
+            */
+            session = HibernateUtil.getSessionFactory().openSession();
+             
+           session.beginTransaction();
+           /*Al ser una relacion OneToOne entre DetalleProducto y Producto, al crear el detalle o el producto
+             automaticamente se crea la otra tabla 
+           */
+            session.update(detalle);
+            session.getTransaction().commit();
+
+        } catch (Exception e) {
+            System.out.println(e);
+            session.getTransaction().rollback();
+        }finally{
+        if(session!=null){
+        session.close();
+        }
+        }
+    }
+
 }

@@ -62,9 +62,14 @@ public class DetalleProductoBeen implements Serializable{
     public void setDetalle(DetalleProducto detalle) {
         this.detalle = detalle;
     }
+    //operaciones CRUD
     public void nuevodetalle(){
          DetalleProductoDao dDao = new DetalleProductoDaoImp();
          dDao.newDetalle(detalle,producto,proveedor,categoria);
+    }
+    public void updatedetalle(){
+         DetalleProductoDao dDao = new DetalleProductoDaoImp();
+         dDao.uodateDetalle(detalle,producto,proveedor,categoria);
     }
 
     public Producto getProducto() {

@@ -14,7 +14,7 @@
                 <p:growl  id="growl" sticky="true" showDetail="true"/>
                 <h:form id="frmNuevoProducto">
                     <p:dialog id="dlgNuevoProducto" header="Nuevo Producto" widgetVar="DialogoNuevoProducto" resizable ="false"  position="center" 
-                              responsive="true" modal="true"  showEffect="explode" hideEffect="explode"> 
+                              responsive="true" modal="true"  showEffect="explode" hideEffect="explode" draggable="false" closeOnEscape="true"> 
                         <p:panelGrid columns="2" style="margin: 0 auto;">
                             <h:outputLabel value="Nombre producto:" />
                             <p:inputText  value="#{DetalleProductoBeen.producto.proNombre}"/>
@@ -44,7 +44,7 @@
                 </h:form>
 
                 <h:form>
-                    <p:commandButton value="Nuevo producto" actionListener="#{DetalleProductoBeen.nuevopructo()}"
+                    <p:commandButton icon="ui-icon-plusthick" value="Nuevo producto" actionListener="#{DetalleProductoBeen.nuevopructo()}"
                                      oncomplete="PF('DialogoNuevoProducto').show();" update=":frmNuevoProducto"/>
                 </h:form> 
 
@@ -58,10 +58,27 @@
                         <p:column headerText="Producto">
                             <h:outputText value="#{ct.producto.proNombre}"/>
                         </p:column>
+                        <p:column headerText="Precio compra">
+                            <h:outputText value="$#{ct.precioCompra}"/>
+                        </p:column>
+                        <p:column headerText="Precio Venta">
+                            <h:outputText value="$#{ct.producto.proPrecio}"/>
+                        </p:column>
                         <p:column headerText="Proveedor">
                             <h:outputText value="#{ct.proveedor.proNombre}"/>
                         </p:column>
-
+                        <p:column headerText="Tel. proveedor">
+                            <h:outputText value="#{ct.proveedor.telefono}"/>
+                        </p:column>
+                         <p:column headerText="Dirección proveedor">
+                             <h:outputText value="#{ct.proveedor.proDireccion}"/>
+                        </p:column>
+                        <p:column headerText="Categoría">
+                            <h:outputText value="#{ct.categoria.categoria}"/>
+                        </p:column>
+                        <p:column headerText="Modificar">
+                            <p:commandButton value="Modificar"></p:commandButton>
+                        </p:column>
                     </p:dataTable>
                 </h:form>
             </ui:define>
