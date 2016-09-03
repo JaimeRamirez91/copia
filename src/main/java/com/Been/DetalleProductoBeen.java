@@ -69,7 +69,7 @@ public class DetalleProductoBeen implements Serializable{
     }
     public void updatedetalle(){
          DetalleProductoDao dDao = new DetalleProductoDaoImp();
-         dDao.uodateDetalle(detalle,producto,proveedor,categoria);
+         dDao.updateDetalle(detalle,producto,proveedor,categoria);
     }
 
     public Producto getProducto() {

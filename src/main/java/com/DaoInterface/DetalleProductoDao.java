@@ -7,9 +7,8 @@ import com.entidades.Proveedor;
 import java.util.List;
 
 public interface DetalleProductoDao {
-    
     public List<DetalleProducto> listarFactura();
     public void newDetalle(DetalleProducto detalle, Producto prod, Proveedor proveedor, Categoria categoria);
-    public void uodateDetalle(DetalleProducto detalle, Producto prod, Proveedor proveedor, Categoria categoria);
+    public void updateDetalle(DetalleProducto detalle, Producto prod, Proveedor proveedor, Categoria categoria);
     
 }

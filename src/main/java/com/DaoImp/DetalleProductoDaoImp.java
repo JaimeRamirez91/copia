@@ -17,7 +17,6 @@ public class DetalleProductoDaoImp implements DetalleProductoDao {
         List<DetalleProducto> lista = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
-        String hql = "FROM DetalleProducto";
         /*
        inner join fetch hace que se llene el objeto estadoProducto con todos los datos en una 
        sola consulta para evitar el error de que el proxy no esta inicializado
@@ -29,7 +28,7 @@ public class DetalleProductoDaoImp implements DetalleProductoDao {
         //String hql = "from Producto p inner join fetch p.estadoProducto";
 
         try {
-            lista = session.createQuery(hql).list();
+            lista = session.getNamedQuery("detalleProducto.Lista").list();
             t.commit();
 
             session.close();
@@ -58,18 +57,6 @@ public class DetalleProductoDaoImp implements DetalleProductoDao {
             detalle.setProducto(prod);
             detalle.setCategoria(categoria);
             detalle.setProveedor(proveedor);
-            /*
-            System.out.println("--------------------------------------------------------------------------------");
-            System.out.println("categoria");
-            System.out.println(detalle.getCategoria().getIdCategoria());
-            System.out.println("proveedor");
-            System.out.println(detalle.getProveedor().getIdproveedor());
-            System.out.println("nombre producto");
-            System.out.println(detalle.getProducto().getProNombre());
-           System.out.println("-----------------------------------------------------------------------------------");
-             */
-
-            //-------------------------------------------------------
             session = HibernateUtil.getSessionFactory().openSession();
 
             session.beginTransaction();
@@ -88,23 +75,9 @@ public class DetalleProductoDaoImp implements DetalleProductoDao {
             }
         }
     }
-                /*
-            Producto producto = new Producto();
-            producto.setProNombre("ttttttttttttttttt");
-            producto.setIdProducto(1);
-
-            DetalleProducto prueba = new DetalleProducto();
-            prueba.setPrecioCompra(0.99);
-            prueba.setIdDetalle(1);
-            Categoria catego = new Categoria(1, "Bebidas");
-            prueba.setCategoria(catego);
-            Proveedor prrrrr = new Proveedor(1, "Industrias La Constancia");
-            prueba.setProveedor(prrrrr);
-            producto.setDetalleproducto(prueba);
-            prueba.setProducto(producto);
-           */
+    
     @Override
-    public void uodateDetalle(DetalleProducto detalle, Producto prod, Proveedor proveedor, Categoria categoria) {
+    public void updateDetalle(DetalleProducto detalle, Producto prod, Proveedor proveedor, Categoria categoria) {
         Session session = null;
         try {
 

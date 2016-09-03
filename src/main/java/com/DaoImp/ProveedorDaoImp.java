@@ -1,4 +1,3 @@
-
 package com.DaoImp;
 import com.DaoInterface.ProveedorDao;
 import com.Util.HibernateUtil;
@@ -14,17 +13,13 @@ public class ProveedorDaoImp implements ProveedorDao{
        List<Proveedor> lista = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
-        String hql = "FROM Proveedor";
         try {
-            lista = session.createQuery(hql).list();
+            lista = session.getNamedQuery("proveedor.Lista").list();
             t.commit();
-
             session.close();
         } catch (Exception e) {
             t.rollback();
         }
         return lista;
     }
-    }
-    
-
+}

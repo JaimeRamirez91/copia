@@ -10,14 +10,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ *
+ * @author pc
+ */
 @Entity
 @Table(name = "DETALLEPRODUCTO")
 @XmlRootElement
+@NamedQueries({
+              @NamedQuery( name = "detalleProducto.Lista" , query = "From DetalleProducto") 
+              })
 public class DetalleProducto implements Serializable{
     @Id
     @GeneratedValue
