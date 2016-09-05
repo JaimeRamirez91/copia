@@ -24,10 +24,17 @@
                             <p:menuitem value="Ir inico" styleClass="submenubar2" icon="ui-icon-home" outcome="/Vistas/Inicio/Inicio.xhtml"/>
                             
                         </p:submenu>
+                        
+                        
+                        <p:submenu label="Ventas" icon="ui-icon-home" styleClass="submenubar2">
+                            <p:menuitem value="Facturación" styleClass="submenubar2" icon="ui-icon-home" outcome="/Vistas/Ventas/Factura.xhtml"/>
+                            
+                        </p:submenu>
  
-                        <p:submenu label="Administración" styleClass="submenubar2">
-                            <p:menuitem value="Producto" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Producto/Producto.xhtml"/>
-                            <p:menuitem value="Categorias" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Categorias/Categorias.xhtml"/>
+                        <p:submenu label="Administración" styleClass="submenubar2" icon="ui-icon-wrench" >
+                             <p:menuitem value="Producto" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Producto/Producto.xhtml"/>
+                             <p:menuitem value="Categorias" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Categorias/Categorias.xhtml"/>
+                             <p:menuitem value="Proveedor" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Proveedor/Proveedor.xhtml"/>
                         </p:submenu>
                     </p:menubar>
                 </h:form>

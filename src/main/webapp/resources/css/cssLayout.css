@@ -2,6 +2,9 @@
 #top {
     position: relative;
     background-color: #0489B1;
+        /*#3b5998;*/
+        /*#2c5770;
+        #0489B1;*/
     color: white;
     padding: 5px;
      /* bordes redondeados*/
@@ -10,11 +13,15 @@
     -webkit-border-radius: 15px 15px 15px 15px;
     border: 0px ridge #3220a8;
     
+    
+    
 }
 
 #bottom {
     position: relative;
     background-color: #086A87;
+        /*#2c5770;
+        #086A87;*/
     padding: 5px;
     margin: 10px 0px 0px 0px;
     /* bordes redondeados*/
@@ -22,6 +29,8 @@
     -moz-border-radius: 35px 36px 38px 36px;
     -webkit-border-radius: 35px 36px 38px 36px;
      border: 0px ridge #3220a8;
+   
+
 }
 
 #left {
@@ -40,13 +49,16 @@
 
 .center_content {
     position: relative;
-    background-color: #dddddd;
+    background-color: #828a87; 
+        /*#339973;*/
     padding: 5px;
     /* bordes redondeados*/
     border-radius: 10px 10px 10px 10px;
    -moz-border-radius: 10px 10px 10px 10px;
    -webkit-border-radius: 10px 10px 10px 10px;
    border: 0px ridge #3220a8;
+   
+   
 }
 
 .left_content {

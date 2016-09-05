@@ -5,25 +5,21 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-
     <body>
-
         <ui:composition template="./../../Template/Base.xhtml">
 
             <ui:define name="content">
                  <h:form id="frmMostrarCategorias">
 
                     <p:dataTable id="tablaCategorias" paginator="true" paginatorPosition="top"
-                                 var="ct" value="#{categoriabeen.listaCategorias}" rows="5">
+                                 var="ct" value="#{categoriabeen.listaCategorias}" rows="5" 
+                                 styleClass="tabla">
                         <p:column headerText="N°">
                             <h:outputText value="#{ct.idCategoria}"/>
                         </p:column>
                         <p:column headerText="Categorias">
                             <h:outputText value="#{ct.categoria}"/>
                         </p:column>
-                        
-                         
-                     
                         <p:column headerText="Modificar">
                             <p:commandButton value="Modificar" >
                                  

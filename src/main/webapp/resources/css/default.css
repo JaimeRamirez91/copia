@@ -5,7 +5,9 @@ body {
     color: #000000;  
     margin: 10px;
 }
-
+h2{
+    color: black;
+    }
 h1 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     border-bottom: 1px solid #AFAFAF; 
@@ -17,43 +19,70 @@ h1 {
 }
 
 a:link, a:visited {
-  color: #045491;
-  font-weight : bold;
-  text-decoration: none;
+    color: #045491;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 a:link:hover, a:visited:hover  {
-  color: #045491;
-  font-weight : bold;
-  text-decoration : underline;
+    color: #045491;
+    font-weight : bold;
+    text-decoration : underline;
 }
 
-   .menubar{
-       border-radius: 10px 10px 10px 10px !important;
-    -moz-border-radius: 10px 10px 10px 10px !important;
-    -webkit-border-radius: 10px 10px 10px 10px !important;
-    border: 0px ridge #3220a8 !important;
-       
-   }
-   .submenu{
+.menubar{
     border-radius: 10px 10px 10px 10px !important;
     -moz-border-radius: 10px 10px 10px 10px !important;
     -webkit-border-radius: 10px 10px 10px 10px !important;
     border: 0px ridge #3220a8 !important;
-       
-   }
-   .submenubar1{
-       border-radius: 10px 10px 10px 10px !important;
+
+}
+.submenu{
+    border-radius: 10px 10px 10px 10px !important;
     -moz-border-radius: 10px 10px 10px 10px !important;
     -webkit-border-radius: 10px 10px 10px 10px !important;
     border: 0px ridge #3220a8 !important;
-       
-   }
-   .submenubar2{
-       border-radius: 10px 10px 10px 10px !important;
+
+}
+.submenubar1{
+    border-radius: 10px 10px 10px 10px !important;
     -moz-border-radius: 10px 10px 10px 10px !important;
     -webkit-border-radius: 10px 10px 10px 10px !important;
     border: 0px ridge #3220a8 !important;
-       
-   }
-  
+
+}
+.submenubar2{
+    border-radius: 10px 10px 10px 10px !important;
+    -moz-border-radius: 10px 10px 10px 10px !important;
+    -webkit-border-radius: 10px 10px 10px 10px !important;
+    border: 0px ridge #3220a8 !important;
+
+}
+.panel{
+   width: 900px !important;
+   margin: 0 auto !important;
+   text-align: center !important;
+   
+   border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px ridge #3220a8;
+} 
+
+.datosClienteFactura{
+    width: 100% !important;
+    height: 120px !important;
+}
+.datosCliente{
+    padding: 5px !important;
+    text-align: justify !important;
+    font-size: 14px !important;
+    size: 300px !important;
+}
+.datosFactura{
+    padding: 5px !important;
+    text-align: center !important;
+    font-size: 14px !important;
+    size: 200px !important;
+    
+}

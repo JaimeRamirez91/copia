@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../Template/Base.xhtml">
+
+            <ui:define name="content">
+                <h2><center>REALIZAR VENTA</center></h2>
+                <h:form id="formFacturas">
+                    <p:panel header="Factura" styleClass="panel">
+                        <p:layout id="capaDatosClienteFactura" styleClass="datosClienteFactura" >
+                            <p:layoutUnit id="DatosCliente" styleClass="datosCliente" position="center">
+                                <h:panelGrid id="gridBuscarDatosCliente" columns="5">
+                                <p:outputLabel value="Codigo cliente:"/>
+                                <p:inputText size="12" />
+                                <p:commandButton value=".."/>
+                                  <p:outputLabel value="Fecha:"/>
+                                  <p:outputLabel value="Fecha del sistema:"/>
+                                </h:panelGrid>
+                                <p:separator/>
+                                <h:panelGrid id="gridDatosCliente" columns="2">
+                                    <p:outputLabel value="Nombre:"/>
+                                    <p:outputLabel id="lblNombreCliente" value=""/>
+                                     <p:outputLabel value="Dirección:"/>
+                                    <p:outputLabel id="lblDireccionCliente" value=""/>
+                                </h:panelGrid>
+                               
+                                
+                            </p:layoutUnit>
+                            <p:layoutUnit id="datosFactura" styleClass="datosFactura" position="east">
+                                <h:panelGrid columns="1">
+                                  <h:outputLabel value="FACTURA"/>
+                                 <h:outputLabel value="00001"/>
+                                  <p:separator/>
+                                </h:panelGrid>
+                                
+                            </p:layoutUnit>
+                        </p:layout>
+                        <p:panelGrid columns="3">
+                            <p:outputLabel value="Codigo de barrra:"/>
+                            <p:inputText value="" size="12"/>
+                            <p:commandButton value="Buscar"/>
+                        </p:panelGrid>
+                          <p:separator/>
+                          <p:dataTable id="tablaProductos" emptyMessage="No se han encontrado registros.">
+                              <p:column headerText="Codigo de barra">
+                                  
+                              </p:column>
+                              <p:column headerText="Producto">
+                                  
+                              </p:column>
+                              <p:column headerText="Cantidad">
+                                  
+                              </p:column>
+                              <p:column headerText="Precio venta">
+                                  
+                              </p:column>
+                              <p:column headerText="Total">
+                                  
+                              </p:column>
+                          </p:dataTable>
+                          <p:outputLabel value="Total venta: $ 100  "/>
+                          <p:outputLabel value="Total a vender: $100"/>
+                          <p:separator/>
+                          <p:commandButton value="Registrar"/>
+                          <p:commandButton value="Imprimir"/>
+                          <p:commandButton value="Cancelar"/>
+                    </p:panel>
+                    
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
