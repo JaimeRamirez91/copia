@@ -21,6 +21,8 @@
                         <p:panelGrid columns="2" style="margin: 0 auto;">
                             <h:outputLabel value="Nombre producto:" />
                             <p:inputText  value="#{DetalleProductoBeen.producto.proNombre}"/>
+                            <h:outputLabel value="Codigo de barra:" />
+                            <p:inputText  value="#{DetalleProductoBeen.producto.proCodigoBarra}"/>
                             <h:outputLabel value="precio venta"/>
                             <p:inputNumber  value="#{DetalleProductoBeen.producto.proPrecio}"/>
                             <h:outputLabel value="Precio compra:"/>
@@ -53,6 +55,8 @@
                         <p:panelGrid columns="2" style="margin: 0 auto;">
                             <h:outputLabel value="Nombre producto:" />
                             <p:inputText  value="#{DetalleProductoBeen.producto.proNombre}"/>
+                             <h:outputLabel value="Codigo de barra:" />
+                             <p:inputText  value="#{DetalleProductoBeen.producto.proCodigoBarra}"/>
                             <h:outputLabel value="precio venta"/>
                             <p:inputNumber  value="#{DetalleProductoBeen.producto.proPrecio}"/>
                             <h:outputLabel value="Precio compra:"/>
@@ -91,8 +95,8 @@
 
                     <p:dataTable id="tablaProductos" paginator="true" paginatorPosition="top"
                                  var="ct" value="#{DetalleProductoBeen.listadelatte}" rows="5">
-                        <p:column headerText="N°">
-                            <h:outputText value="#{ct.idDetalle}"/>
+                        <p:column headerText="Codigo">
+                            <h:outputText value="#{ct.producto.proCodigoBarra}"/>
                         </p:column>
                         <p:column headerText="Producto">
                             <h:outputText value="#{ct.producto.proNombre}"/>

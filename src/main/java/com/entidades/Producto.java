@@ -35,6 +35,9 @@ public class Producto implements Serializable{
     @Column(name = "PROPRECIO")
     @NotNull
     private double proPrecio;
+     @Column(name = "PROCODIGOBARRA")
+    @NotNull
+    private String proCodigoBarra;
     @Column(name = "STOCK")
     @NotNull
     private int stock;
@@ -90,5 +93,14 @@ public class Producto implements Serializable{
     public void setStock(int stock) {
         this.stock = stock;
     }    
-    
+
+    public String getProCodigoBarra() {
+        return proCodigoBarra;
+    }
+
+    public void setProCodigoBarra(String proCodigoBarra) {
+        this.proCodigoBarra = proCodigoBarra;
+    }
+
+   
 }

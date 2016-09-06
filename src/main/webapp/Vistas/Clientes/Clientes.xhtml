@@ -1,30 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html  xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
+
     <body>
+
         <ui:composition template="./../../Template/Base.xhtml">
 
             <ui:define name="content">
-                <h:form id="frmMostrarProveedor">
+                <h:form id="frmMostrarClientes">
                      
-                    <p:dataTable id="tablaProveedor" paginator="true" paginatorPosition="top"
-                                  var="pr" value="#{proveedorbeen.listaProveedor}" rows="5"
+                    <p:dataTable id="tablaClientes" paginator="true" paginatorPosition="top"
+                                 var="cl" value="#{clientebeen.listaClientes}" rows="5"
                                   >
                         <p:column headerText="N°">
-                            <h:outputText value="#{pr.idproveedor}"/>
+                            <h:outputText value="#{cl.idCliente}"/>
                         </p:column>
                         <p:column headerText="Nombre">
-                            <h:outputText value="#{pr.proNombre}"/>
+                            <h:outputText value="#{cl.cliNombre} #{cl.cliApellidos}"/>
                         </p:column>
                         <p:column headerText="Dirección">
-                            <h:outputText value="#{pr.proDireccion}"/>
-                        </p:column>
-                        <p:column headerText="Telefono">
-                            <h:outputText value="#{pr.telefono}"/>
+                            <h:outputText value="#{cl.cliDireccion}"/>
                         </p:column>
                         <p:column headerText="Modificar">
                             <p:commandButton value="Modificar" >
@@ -34,6 +33,7 @@
                     </p:dataTable>
                 </h:form>
             </ui:define>
+
         </ui:composition>
 
     </body>

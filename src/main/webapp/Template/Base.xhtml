@@ -14,9 +14,12 @@
     </h:head>
 
     <h:body>
-
+        <div id="Divgeneral">
         <div id="top">
             <ui:insert name="top">
+            
+                <h1>SISTEMA DE FACTURACIÓN</h1>
+              
                 <h:form>  
                     <p:menubar styleClass="menubar">
 
@@ -34,6 +37,7 @@
                         <p:submenu label="Administración" styleClass="submenubar2" icon="ui-icon-wrench" >
                              <p:menuitem value="Producto" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Producto/Producto.xhtml"/>
                              <p:menuitem value="Categorias" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Categorias/Categorias.xhtml"/>
+                             <p:menuitem value="Clientes" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Clientes/Clientes.xhtml"/>
                              <p:menuitem value="Proveedor" styleClass="submenubar2" icon="ui-icon-wrench" outcome="/Vistas/Proveedor/Proveedor.xhtml"/>
                         </p:submenu>
                     </p:menubar>
@@ -46,11 +50,11 @@
         </div>
 
         <div id="bottom">
-            <center>
-                <ui:insert name="bottom"><h1>Ing. Jaime Ramírez</h1></ui:insert>
-            </center> 
+       
+                <ui:insert name="bottom"><h3>Ing. Jaime Ramírez</h3></ui:insert>
+           
         </div>
-
+</div>
     </h:body>
 
 </html>
