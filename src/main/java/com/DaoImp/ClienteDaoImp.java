@@ -3,6 +3,7 @@ import com.entidades.Clientes;
 import com.DaoInterface.ClienteDao;
 import com.Util.HibernateUtil;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -24,6 +25,14 @@ public class ClienteDaoImp implements ClienteDao{
 
         return lista;
        
+    }
+
+    @Override
+    public Clientes obtenerClientPorCodigo(Session session, Integer codCliente) throws Exception {
+        Long id = codCliente.longValue();
+        Query query =session.getNamedQuery("clientes.codigo").setParameter("idCliente", id);
+        Clientes cliente = (Clientes)query.uniqueResult();
+        return  cliente;
     }
     
 }

@@ -17,7 +17,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name="CLIENTES")
 @XmlRootElement
 @NamedQueries({
-              @NamedQuery( name = "clientes.Lista" , query = "FROM Clientes") 
+              @NamedQuery( name = "clientes.Lista" , query = "FROM Clientes"),
+              @NamedQuery( name = "clientes.codigo" , query = "FROM Clientes WHERE idCliente = :idCliente") 
               })
 public class Clientes implements Serializable{
     @Id

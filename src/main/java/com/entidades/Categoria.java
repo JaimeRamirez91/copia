@@ -28,7 +28,7 @@ public class Categoria implements Serializable{
     @Column (name = "CATEGORIA")
     private String Categoria;
 
-     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
     // private Set detalleproducto = new HashSet(0);  
     private Set<DetalleProducto> detalleproducto = new HashSet<DetalleProducto>(0);
      //   private Set facturas = new HashSet(0);

@@ -7,19 +7,26 @@
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
+        <!--  Solucion al problema de f5 y cuando dejan de funcional los js y los menus dinamicos(para dispositivos moviles)-->
+        <meta http-equiv="refresh" content="URL=#"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            
+       <h:outputStylesheet name="./css/normalize.css"/>
         <h:outputStylesheet name="./css/default.css"/>
         <h:outputStylesheet name="./css/cssLayout.css"/>
-        <title>Facelets Template</title>
+    
+        
+         
+        
+        
+        <title> Sistema de Facturación</title> 
     </h:head>
 
     <h:body>
         <div id="Divgeneral">
-        <div id="top">
+            <div id="top" >
             <ui:insert name="top">
-            
                 <h1>SISTEMA DE FACTURACIÓN</h1>
-              
                 <h:form>  
                     <p:menubar styleClass="menubar">
 
@@ -44,12 +51,12 @@
                 </h:form>
             </ui:insert>
         </div>
-        <br></br>
-        <div id="content" class="center_content">
+        
+        <div id="content" class="contenido">
             <ui:insert name="content">Content</ui:insert>
         </div>
 
-        <div id="bottom">
+        <div id="bottom" class="pie">
        
                 <ui:insert name="bottom"><h3>Ing. Jaime Ramírez</h3></ui:insert>
            

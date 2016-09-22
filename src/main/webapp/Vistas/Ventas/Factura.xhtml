@@ -7,31 +7,34 @@
       xmlns:p="http://primefaces.org/ui">
 
     <body>
-
+        <!--  Solucion al problema de f5 y cuando dejan de funcional los js y los menus dinamicos(para dispositivos moviles)-->
+        <meta http-equiv="refresh" content="URL=#"/>
         <ui:composition template="./../../Template/Base.xhtml">
-
             <ui:define name="content">
-                <h2><center>REALIZAR VENTA</center></h2>
+                
+                    
                 <h:form id="formFacturas">
-                    <p:panel header="Factura" styleClass="panel">
+                    <p:growl id="mensajeGeneral" showDetail="true" autoUpdate="true" life="3000"></p:growl>
+                     
+                    <p:panel  id="panel" header="Factura" styleClass="panel">
                         <p:layout id="capaDatosClienteFactura" styleClass="datosClienteFactura" >
                             <p:layoutUnit id="DatosCliente" styleClass="datosCliente" position="center">
                                 <h:panelGrid id="gridBuscarDatosCliente" columns="5">
                                     <p:outputLabel value="Codigo cliente:"/>
-                                    <p:inputText size="12" />
-                                    <p:commandButton value=".."/>
+                                    <p:inputText id="txtBuscarCliente" value="#{clientebeen.codigoCliente}" size="12" >
+                                    </p:inputText>
+                                    <p:commandButton value="Buscar" actionListener= "#{clientebeen.agregarDatosCliente2()}" resetValues="true" update=":formFacturas:gridDatosCliente  "/>
+                                    <p:commandButton value="..." oncomplete="PF('dialogoClientes').show();" />
                                     <p:outputLabel value="Fecha:"/>
                                     <p:outputLabel value="Fecha del sistema:"/>
                                 </h:panelGrid>
                                 <p:separator/>
                                 <h:panelGrid id="gridDatosCliente" columns="2">
                                     <p:outputLabel value="Nombre:"/>
-                                    <p:outputLabel id="lblNombreCliente" value=""/>
-                                    <p:outputLabel value="Dirección:"/>
-                                    <p:outputLabel id="lblDireccionCliente" value=""/>
+                                    <p:outputLabel id="lblNombreCliente" value="#{clientebeen.cliente.cliNombre} #{clientebeen.cliente.cliApellidos}"/>
+                                    <p:outputLabel value="Dirección:" />
+                                    <p:outputLabel id="lblDireccionCliente" value="#{clientebeen.cliente.cliDireccion}"/>
                                 </h:panelGrid>
-
-
                             </p:layoutUnit>
                             <p:layoutUnit id="datosFactura" styleClass="datosFactura" position="east">
                                 <h:panelGrid columns="1">
@@ -44,7 +47,7 @@
                         </p:layout>
                         <p:panelGrid columns="3">
                             <p:outputLabel value="Codigo de barrra:"/>
-                            <p:inputText value="" size="12"/>
+                            <p:inputText  size="12"/>
                             <p:commandButton value="Buscar"/>
                         </p:panelGrid>
                         <p:separator/>
@@ -72,11 +75,15 @@
                         <p:commandButton value="Imprimir"/>
                         <p:commandButton value="Cancelar"/>
                     </p:panel>
+                     
+                    
                     <!--Dialogo Cliente -->
-                    <p:dialog id="dlgClientes" widgetVar="dialogoClientes" modal="true" showEffect="explode" hideEffect="explode"
-                              resizable="false">
-
-                        <p:dataTable id="tablaClientes" paginator="true" paginatorPosition="top"
+                    <p:dialog id="dlgClientes" widgetVar="dialogoClientes" modal="true" showEffect="explode" hideEffect="explode" 
+                             styleClass="dialogoClientes" resizable="false" position="center" responsive="true"  draggable="false" closeOnEscape="true">
+                        
+                        <h:outputText value="Tabla Clientes" styleClass="txtClientes" />
+                       
+                        <p:dataTable id="tablaClientes" paginator="true" paginatorPosition="top" style="width: 700px;" 
                                      var="cl" value="#{clientebeen.listaClientes}" rows="5"
                                      >
                             <p:column headerText="N°">
@@ -88,15 +95,20 @@
                             <p:column headerText="Dirección">
                                 <h:outputText value="#{cl.cliDireccion}"/>
                             </p:column>
-                            <p:column headerText="Modificar">
-                                <p:commandButton value="Modificar" >
+                            <p:column headerText="Seleccionar">
+                                <p:commandButton value="Seleccionar"  actionListener="#{clientebeen.agregarDatosCliente(cl.idCliente)}"
+                                                 oncomplete="PF('dialogoClientes').hide();"
+                                                 update=":formFacturas:gridDatosCliente">
 
                                 </p:commandButton>
                             </p:column>
                         </p:dataTable>
-
+                        <center>
+                        <p:commandButton value="cerrar" onclick="PF('dialogoClientes').hide();"/>
+                        </center>
                     </p:dialog>
                 </h:form>
+                   
             </ui:define>
         </ui:composition>
     </body>

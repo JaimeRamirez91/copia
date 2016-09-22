@@ -1,10 +1,8 @@
-
+@media only screen and (min-width: 768px) {
 #top {
+     height: 80px;
     position: relative;
     background-color: #0489B1;
-        /*#3b5998;*/
-        /*#2c5770;
-        #0489B1;*/
     color: white;
     padding: 1%;
      /* bordes redondeados*/
@@ -12,16 +10,14 @@
     -moz-border-radius: 15px 15px 15px 15px;
     -webkit-border-radius: 15px 15px 15px 15px;
     border: 0px ridge #3220a8;
-    
-    
-    
+     
 }
 
 #bottom {
+   
+    height: 25px;
     position: relative;
     background-color: #086A87;
-        /*#2c5770;
-        #086A87;*/
     padding: 1%;
     margin: 10px 0px 0px 0px;
     /* bordes redondeados*/
@@ -32,7 +28,13 @@
    
 
 }
-
+#content{
+         align-content: center;
+         margin-left: 150px;
+         margin-top: 20px;
+         width: 1000px;
+         height: 450px;
+        }
 #left {
     float: left;
     background-color: #ece3a5;
@@ -85,7 +87,4 @@
   text-decoration : underline;
 }
 
-#Divgeneral{
-    width: 1200px;
-    margin: 0 auto;
 }
