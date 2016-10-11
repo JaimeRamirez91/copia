@@ -11,23 +11,29 @@
         <meta http-equiv="refresh" content="URL=#"/>
         <ui:composition template="./../../Template/Base.xhtml">
             <ui:define name="content">
-                
-                    
+
+
                 <h:form id="formFacturas">
-                    <p:growl id="mensajeGeneral" showDetail="true" autoUpdate="true" life="3000"></p:growl>
-                     
-                    <p:panel  id="panel" header="Factura" styleClass="panel">
-                        <p:layout id="capaDatosClienteFactura" styleClass="datosClienteFactura" >
-                            <p:layoutUnit id="DatosCliente" styleClass="datosCliente" position="center">
-                                <h:panelGrid id="gridBuscarDatosCliente" columns="5">
-                                    <p:outputLabel value="Codigo cliente:"/>
-                                    <p:inputText id="txtBuscarCliente" value="#{clientebeen.codigoCliente}" size="12" >
+                    <p:growl id="mensajeGeneral"  showDetail="true"  autoUpdate="true" life="3000"></p:growl>
+                    
+                    <p:panel  id="panel"  styleClass="panel" >
+                        <f:facet name="header" >
+                               <h:outputText value="Ventas" />
+                        </f:facet>
+
+                        <p:layout id="capaDatosClienteFactura" styleClass="datosClienteFactura"  >
+                            <p:layoutUnit id="DatosCliente" styleClass="datosCliente" position="center" >
+                                <p:panelGrid  id="GridBuscarDatosCliente" columns="8">
+                                     <p:outputLabel value="Codigo cliente:"/> 
+                                     <p:inputText id="txtBuscarCliente" value="#{clientebeen.codigoCliente}" size="12" >
                                     </p:inputText>
-                                    <p:commandButton value="Buscar" actionListener= "#{clientebeen.agregarDatosCliente2()}" resetValues="true" update=":formFacturas:gridDatosCliente  "/>
-                                    <p:commandButton value="..." oncomplete="PF('dialogoClientes').show();" />
-                                    <p:outputLabel value="Fecha:"/>
+                                     <p:commandButton value="Buscar" actionListener= "#{clientebeen.agregarDatosCliente2()}" styleClass="btnModificar"  resetValues="true" update=":formFacturas:gridDatosCliente  "/>
+                                     <p:commandButton value="..."  styleClass="btnModificar" oncomplete="PF('dialogoClientes').show();" />
+                                      <p:outputLabel value="Fecha:"/>
+                                    <p:outputLabel value="16-05-2016"/>
                                     <p:outputLabel value="Fecha del sistema:"/>
-                                </h:panelGrid>
+                                    <p:outputLabel value="16-05-2016"/>
+                                </p:panelGrid>
                                 <p:separator/>
                                 <h:panelGrid id="gridDatosCliente" columns="2">
                                     <p:outputLabel value="Nombre:"/>
@@ -45,18 +51,24 @@
 
                             </p:layoutUnit>
                         </p:layout>
-                        <p:panelGrid columns="3">
+                        <p:panelGrid columns="4">
                             <p:outputLabel value="Codigo de barrra:"/>
                             <p:inputText  size="12"/>
-                            <p:commandButton value="Buscar"/>
+                            <p:commandButton value="Buscar" styleClass="btnModificar"/>
+                            <p:commandButton value="...." styleClass="btnModificar" oncomplete="PF('dialogoProducto').show();" />
                         </p:panelGrid>
                         <p:separator/>
-                        <p:dataTable id="tablaProductos" emptyMessage="No se han encontrado registros.">
-                            <p:column headerText="Codigo de barra">
-
+                        <p:dataTable id="tablaProductos"  var="producto" value="#{ventasbeen.listaproducto}" 
+                                     rowStyleClass="ejemplo, ejemplo2"  emptyMessage="No se han encontrado registros.">
+                            <f:facet name="header">
+                                <h:outputText value="Productos" style="color: white;" />
+                            </f:facet>
+                            <p:column headerText="Codigo de barra" >
+                                
+                                <h:outputText value="#{producto.proCodigoBarra}"/>
                             </p:column>
                             <p:column headerText="Producto">
-
+                                <h:outputText value="#{producto.proNombre}"/>
                             </p:column>
                             <p:column headerText="Cantidad">
 
@@ -71,21 +83,25 @@
                         <p:outputLabel value="Total venta: $ 100  "/>
                         <p:outputLabel value="Total a vender: $100"/>
                         <p:separator/>
-                        <p:commandButton value="Registrar"/>
-                        <p:commandButton value="Imprimir"/>
-                        <p:commandButton value="Cancelar"/>
+                        <p:commandButton value="Registrar" styleClass="btnModificar"/>
+                        <p:commandButton value="Imprimir" styleClass="btnModificar"/>
+                        <p:commandButton value="Cancelar" styleClass="btnModificar"/>
                     </p:panel>
-                     
-                    
+
+
                     <!--Dialogo Cliente -->
-                    <p:dialog id="dlgClientes" widgetVar="dialogoClientes" modal="true" showEffect="explode" hideEffect="explode" 
-                             styleClass="dialogoClientes" resizable="false" position="center" responsive="true"  draggable="false" closeOnEscape="true">
-                        
-                        <h:outputText value="Tabla Clientes" styleClass="txtClientes" />
-                       
+
+                    <p:dialog id="dlgClientes" widgetVar="dialogoClientes" modal="true"  showEffect="explode" hideEffect="explode" 
+                              styleClass="dialogoClientes" resizable="false" position="center" responsive="true"  draggable="false" closeOnEscape="true">
+
+
+
                         <p:dataTable id="tablaClientes" paginator="true" paginatorPosition="top" style="width: 700px;" 
                                      var="cl" value="#{clientebeen.listaClientes}" rows="5"
                                      >
+                            <f:facet name="header">
+                                <h:outputText value="Clientes" style="color: white;" />
+                            </f:facet>
                             <p:column headerText="N°">
                                 <h:outputText value="#{cl.idCliente}"/>
                             </p:column>
@@ -96,7 +112,8 @@
                                 <h:outputText value="#{cl.cliDireccion}"/>
                             </p:column>
                             <p:column headerText="Seleccionar">
-                                <p:commandButton value="Seleccionar"  actionListener="#{clientebeen.agregarDatosCliente(cl.idCliente)}"
+
+                                <p:commandButton value="Seleccionar"  style="background: #158B4C; color:#FEFEFE; " actionListener="#{clientebeen.agregarDatosCliente(cl.idCliente)}"
                                                  oncomplete="PF('dialogoClientes').hide();"
                                                  update=":formFacturas:gridDatosCliente">
 
@@ -104,11 +121,47 @@
                             </p:column>
                         </p:dataTable>
                         <center>
-                        <p:commandButton value="cerrar" onclick="PF('dialogoClientes').hide();"/>
+                            <p:separator></p:separator>
+                            <p:commandButton value="cerrar" style="background: Red; color:#FEFEFE; " onclick="PF('dialogoClientes').hide();"/>
+                        </center>
+                    </p:dialog>
+
+                    <!--Dialogo Producto -->
+                    <p:dialog id="dlgProducto" widgetVar="dialogoProducto" modal="true" showEffect="explode" hideEffect="explode" 
+                              styleClass="dialogoClientes" resizable="false" position="center" responsive="true"  draggable="false" closeOnEscape="true">
+
+                        
+
+                        <p:dataTable id="tablaProdAUX" paginator="true" paginatorPosition="top" style="width: 700px;" 
+                                     var="pro" value="#{ventasbeen.listaproducto}" rows="5"
+                                     >
+                             <f:facet name="header">
+                                <h:outputText value="Producto" style="color: white;" />
+                            </f:facet>
+                            <p:column headerText="N°">
+                                <h:outputText value="#{pro.proCodigoBarra}"/>
+                            </p:column>
+                            <p:column headerText="Nombre">
+                                <h:outputText value="#{pro.proNombre}"/>
+                            </p:column>
+                            <p:column headerText="Precio">
+                                <h:outputText value="#{pro.proPrecio}"/>
+                            </p:column>
+                            <p:column headerText="Seleccionar">
+                                <p:commandButton value="Seleccionar" styleClass="btnModificar" actionListener="#{ventasbeen.listaproducto.add(pro)}"
+                                                 oncomplete="PF('dialogoProducto').hide();"
+                                                 update=":formFacturas:tablaProductos">
+
+                                </p:commandButton>
+                            </p:column>
+                        </p:dataTable>
+                        <center>
+                            <p:separator/>
+                            <p:commandButton value="cerrar" style="background: #B40404; color:#FEFEFE; " onclick="PF('dialogoProducto').hide();"/>
                         </center>
                     </p:dialog>
                 </h:form>
-                   
+
             </ui:define>
         </ui:composition>
     </body>

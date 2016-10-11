@@ -12,10 +12,10 @@
 
             <ui:define name="content">
                 <p:growl  id="growl" sticky="true" showDetail="true"/>
-               
+
                 <!--Formulario Nuevo Cliente-->
-                
-                <h:form id="frmNuevoProducto">
+
+                <h:form id="frmNuevoProducto" >
                     <p:dialog id="dlgNuevoProducto" header="Nuevo Producto" widgetVar="DialogoNuevoProducto" resizable ="false"  position="center" 
                               responsive="true" modal="true"  showEffect="explode" hideEffect="explode" draggable="false" closeOnEscape="true"> 
                         <p:panelGrid columns="2" style="margin: 0 auto;">
@@ -40,23 +40,27 @@
                                                itemLabel="#{categoria.categoria}" itemValue="#{categoria.idCategoria}" />
                             </p:selectOneMenu>
 
-                            <p:commandButton value="Registra" actionListener="#{DetalleProductoBeen.nuevodetalle()}" 
-                                             update=":frmMostrarProductos:tablaProductos" oncomplete="PF('DialogoNuevoProducto').hide();"/> 
-                            <p:commandButton value="Cancelar"
-                                             onclick="PF('DialogoNuevoProducto').hide();"/>   
+                            
                         </p:panelGrid>  
+                        <p:separator/>
+                        <center>
+                        <p:commandButton value="Registra" style="background: #158B4C; color:#FEFEFE; " actionListener="#{DetalleProductoBeen.nuevodetalle()}" 
+                                             update=":frmMostrarProductos:tablaProductos" oncomplete="PF('DialogoNuevoProducto').hide();"/> 
+                            <p:commandButton value="Cancelar" style="background: #B40404; color:#FEFEFE; "
+                                             onclick="PF('DialogoNuevoProducto').hide();"/>   
+                            </center>
                     </p:dialog>
                 </h:form>
-                
-           <!--Formulario Modificar Detalle-->
-           <h:form id="frmModificarProducto">
+
+                <!--Formulario Modificar Detalle-->
+                <h:form id="frmModificarProducto">
                     <p:dialog id="dlgModificarProducto" header="Modificar Producto" widgetVar="DialogoModificarProducto" resizable ="false"  position="center" 
                               responsive="true" modal="true"  showEffect="explode" hideEffect="explode" draggable="false" closeOnEscape="true"> 
                         <p:panelGrid columns="2" style="margin: 0 auto;">
                             <h:outputLabel value="Nombre producto:" />
                             <p:inputText  value="#{DetalleProductoBeen.producto.proNombre}"/>
-                             <h:outputLabel value="Codigo de barra:" />
-                             <p:inputText  value="#{DetalleProductoBeen.producto.proCodigoBarra}"/>
+                            <h:outputLabel value="Codigo de barra:" />
+                            <p:inputText  value="#{DetalleProductoBeen.producto.proCodigoBarra}"/>
                             <h:outputLabel value="precio venta"/>
                             <p:inputNumber  value="#{DetalleProductoBeen.producto.proPrecio}"/>
                             <h:outputLabel value="Precio compra:"/>
@@ -69,33 +73,44 @@
                             </p:selectOneMenu>
                             <h:outputLabel for="listaCategoria" value="Categoria:" />
                             <p:selectOneMenu id="listaCategoria" value="#{DetalleProductoBeen.categoria.idCategoria}" filter="true" filterMatchMode="startsWith"> 
-                                 <f:selectItem itemLabel="--Seleccione--" itemValue="" />
-                               
+                                <f:selectItem itemLabel="--Seleccione--" itemValue="" />
+
                                 <f:selectItems value="#{DetalleProductoBeen.listaCategoria}" var="categoria" 
                                                itemLabel="#{categoria.categoria}" itemValue="#{categoria.idCategoria}" />
                             </p:selectOneMenu>
 
-                            <p:commandButton value="Modificar" actionListener="#{DetalleProductoBeen.updatedetalle()}" 
-                                             update=":frmMostrarProductos:tablaProductos" oncomplete="PF('DialogoModificarProducto').hide();"/> 
-                            <p:commandButton value="Cancelar"
-                                             onclick="PF('DialogoModificarProducto').hide();"/>   
+
+
+
                         </p:panelGrid>  
+                        <center>
+                            <p:separator></p:separator>    
+                            <p:commandButton value="Modificar" style="background: #158B4C; color:#FEFEFE; " actionListener="#{DetalleProductoBeen.updatedetalle()}" 
+                                             update=":frmMostrarProductos:tablaProductos" oncomplete="PF('DialogoModificarProducto').hide();"/> 
+
+                            <p:commandButton value="Cancelar" style="background: #B40404; color:#FEFEFE; "
+                                             onclick="PF('DialogoModificarProducto').hide();"/> 
+                        </center>
                     </p:dialog>
                 </h:form>
-                
-            <!--Formulario de Boton Agregar-->   
-                <h:form>
-                    <p:commandButton icon="ui-icon-plusthick" value="Nuevo producto" actionListener="#{DetalleProductoBeen.nuevopructo()}"
-                                     oncomplete="PF('DialogoNuevoProducto').show();" update=":frmNuevoProducto"/>
-                </h:form> 
-            
-            <!--Formularion de la tabla de productos-->
-            
-                <h:form id="frmMostrarProductos">
 
-                    <p:dataTable id="tablaProductos" paginator="true" paginatorPosition="top"
-                                 var="ct" value="#{DetalleProductoBeen.listadelatte}" rows="5">
-                        <p:column headerText="Codigo">
+                <!--Formulario de Boton Agregar-->   
+                <h:form>
+                    <p:commandButton icon="ui-icon-plusthick"  style="color: #ffffff; background: #15768B;" value="Nuevo producto" actionListener="#{DetalleProductoBeen.nuevopructo()}"
+                                     oncomplete="PF('DialogoNuevoProducto').show();" update=":frmNuevoProducto"/>
+                    <br></br><p:separator></p:separator>
+                </h:form> 
+
+                <!--Formularion de la tabla de productos-->
+
+                <h:form id="frmMostrarProductos" styleClass="formularios">
+
+                    <p:dataTable id="tablaProductos" paginator="true" paginatorPosition="top" 
+                                 var="ct" value="#{DetalleProductoBeen.listadelatte}" rows="15">
+                        <f:facet name="header">
+                                <h:outputText value="Productos" style="color: white;" />
+                            </f:facet>
+                        <p:column headerText="Código">
                             <h:outputText value="#{ct.producto.proCodigoBarra}"/>
                         </p:column>
                         <p:column headerText="Producto">
@@ -113,19 +128,19 @@
                         <p:column headerText="Tel. proveedor">
                             <h:outputText value="#{ct.proveedor.telefono}"/>
                         </p:column>
-                         <p:column headerText="Dirección proveedor">
-                             <h:outputText value="#{ct.proveedor.proDireccion}"/>
+                        <p:column headerText="Dirección proveedor">
+                            <h:outputText value="#{ct.proveedor.proDireccion}"/>
                         </p:column>
                         <p:column headerText="Categoría">
                             <h:outputText value="#{ct.categoria.categoria}"/>
                         </p:column>
                         <p:column headerText="Modificar">
-                            <p:commandButton value="Modificar" oncomplete="PF('DialogoModificarProducto').show();"
+                            <p:commandButton value="Modificar" style="background: #158B4C; color:#FEFEFE; " oncomplete="PF('DialogoModificarProducto').show();"
                                              update=":frmModificarProducto"  >
-                                 <f:setPropertyActionListener target="#{DetalleProductoBeen.producto}" value="#{ct.producto}"/>
-                                 <f:setPropertyActionListener target="#{DetalleProductoBeen.detalle}" value="#{ct}"/>
-                                 <f:setPropertyActionListener target="#{DetalleProductoBeen.categoria}" value="#{ct.categoria}"/>
-                                 <f:setPropertyActionListener target="#{DetalleProductoBeen.proveedor}" value="#{ct.proveedor}"/>
+                                <f:setPropertyActionListener target="#{DetalleProductoBeen.producto}" value="#{ct.producto}"/>
+                                <f:setPropertyActionListener target="#{DetalleProductoBeen.detalle}" value="#{ct}"/>
+                                <f:setPropertyActionListener target="#{DetalleProductoBeen.categoria}" value="#{ct.categoria}"/>
+                                <f:setPropertyActionListener target="#{DetalleProductoBeen.proveedor}" value="#{ct.proveedor}"/>
                             </p:commandButton>
                         </p:column>
                     </p:dataTable>

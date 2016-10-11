@@ -22,7 +22,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "PRODUCTO")
 @XmlRootElement
 @NamedQueries({
-              @NamedQuery( name = "producto.Lista" , query = "FROM Producto") 
+              @NamedQuery( name = "producto.Lista" , query = "FROM Producto"),
+              @NamedQuery( name = "producto.codigo" , query = "FROM Producto WHERE proCodigoBarra = :proCodigoBarra")
+        
               })
 public class Producto implements Serializable{
     @Id

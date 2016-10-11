@@ -1,10 +1,11 @@
 body {
-   
-    background-color: lavender;
     font-size: 12px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;  
     margin: 1px;
+    background-position: center center;
+    background-image: url('../images/fondo1.jpg');
+     height: 650px;
 }
 h2{
     color: black;
@@ -44,55 +45,32 @@ a:link:hover, a:visited:hover  {
 }
 
 .menubar{
+
+    margin-top: 30px;
     padding: 0.4% !important;
-    border-radius: 10px 10px 10px 10px !important;
-    -moz-border-radius: 10px 10px 10px 10px !important;
-    -webkit-border-radius: 10px 10px 10px 10px !important;
-    border: 0px ridge #3220a8 !important;
+   
+    
 
 }
-.submenu{
-    border-radius: 10px 10px 10px 10px !important;
-    -moz-border-radius: 10px 10px 10px 10px !important;
-    -webkit-border-radius: 10px 10px 10px 10px !important;
-    border: 0px ridge #3220a8 !important;
 
-}
-.submenubar1{
-    border-radius: 10px 10px 10px 10px !important;
-    -moz-border-radius: 10px 10px 10px 10px !important;
-    -webkit-border-radius: 10px 10px 10px 10px !important;
-    border: 0px ridge #3220a8 !important;
-
-}
-.submenubar2{
-    border-radius: 10px 10px 10px 10px !important;
-    -moz-border-radius: 10px 10px 10px 10px !important;
-    -webkit-border-radius: 10px 10px 10px 10px !important;
-    border: 0px ridge #3220a8 !important;
-
-}
 .panel{
    width: 1000px !important;
-   height: 400px;
+   height: 450px;
    margin: 0 auto !important;
    text-align: center !important;
    
-   border-radius: 10px 10px 10px 10px;
-    -moz-border-radius: 10px 10px 10px 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
-    border: 0px ridge #3220a8;
 } 
 
 .datosClienteFactura{
     width: 100% !important;
-    height: 151px !important;
+    height: 101px !important;
 }
 .datosCliente{
+     
     padding: 1px !important;
     text-align: justify !important;
     font-size: 14px !important;
-    height: 150px !important;
+    height: 100px !important;
     size: 1000px !important;
 }
 .datosFactura{
@@ -109,4 +87,40 @@ a:link:hover, a:visited:hover  {
 }
 .txtClientes{
     font-size: 20px !important;
+}
+
+/*Estilos datatable*/
+
+/* modificacion del color de las filas de las p:datatables*/
+.ui-datatable-odd {
+    background: #ffffff !important;
+}
+
+.ui-datatable-even {
+    background: #F2F5F9 !important;
+}
+.ui-datatable .ui-datatable-titlebar{
+    background: #15768B !important;
+}
+
+.ui-datatable-header{
+    background: #15768B !important;
+    color: white;
+}
+/* panel de la factura*/
+.ui-panel  .ui-panel-titlebar{
+    background: #15768B !important;
+    color : white;
+    text-align: center;
+     font-size:  15px;
+}
+
+/*Botones modificar estilo*/
+.btnModificar{
+    background: #158B4C !important; 
+    color:#FEFEFE !important;
+}
+
+.formularios{
+    text-align: center !important;
 }

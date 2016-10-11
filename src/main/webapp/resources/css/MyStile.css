@@ -1,13 +1,4 @@
-body {
-    background-color: menu;
-    font-size: 12px;
-   
-    font-family: Verdana, "Verdana CE",
-        Arial, "Arial CE", "Lucida Grande CE",
-        lucida, "Helvetica CE", sans-serif;
-    color: #000000;  
-    margin: 10px;
-}
+
 h2{
     color: black;
     }
@@ -45,6 +36,6 @@ a:link:hover, a:visited:hover  {
     text-decoration : underline;
 }
 .pie{
-    background-color: #000000;
+    background: linear-gradient(rgba(4,100,100,1),rgba(20,20,20,1)); /* Standard syntax */
     height: 60px;
 }

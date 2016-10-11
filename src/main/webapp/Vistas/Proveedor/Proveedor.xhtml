@@ -9,11 +9,14 @@
         <ui:composition template="./../../Template/Base.xhtml">
 
             <ui:define name="content">
-                <h:form id="frmMostrarProveedor">
+                <h:form id="frmMostrarProveedor" styleClass="formularios">
                      
                     <p:dataTable id="tablaProveedor" paginator="true" paginatorPosition="top"
                                   var="pr" value="#{proveedorbeen.listaProveedor}" rows="5"
                                   >
+                        <f:facet name="header">
+                               <h:outputText value="Proveedores" />
+                        </f:facet>
                         <p:column headerText="N°">
                             <h:outputText value="#{pr.idproveedor}"/>
                         </p:column>
@@ -27,7 +30,7 @@
                             <h:outputText value="#{pr.telefono}"/>
                         </p:column>
                         <p:column headerText="Modificar">
-                            <p:commandButton value="Modificar" >
+                            <p:commandButton value="Modificar" styleClass="btnModificar">
                                  
                             </p:commandButton>
                         </p:column>

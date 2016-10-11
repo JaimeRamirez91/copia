@@ -1,40 +1,32 @@
 @media only screen and (min-width: 768px) {
 #top {
-     height: 80px;
+     height: 40px;
     position: relative;
-    background-color: #0489B1;
+   /* background-color: #446AAF; */
+        background: -webkit-linear-gradient(rgba(3,3,3,0),rgba(1,1,1,0)); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(rgba(3,3,3,0),rgba(1,1,1,0)); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(rgba(100,100,100,1),rgba(20,20,20,1)); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(rgba(100,100,100,1),rgba(20,20,20,1)); /* Standard syntax */
+        /* #0489B1 */
     color: white;
     padding: 1%;
-     /* bordes redondeados*/
-    border-radius: 15px 15px 15px 15px;
-    -moz-border-radius: 15px 15px 15px 15px;
-    -webkit-border-radius: 15px 15px 15px 15px;
-    border: 0px ridge #3220a8;
-     
+    
 }
 
-#bottom {
-   
-    height: 25px;
-    position: relative;
-    background-color: #086A87;
-    padding: 1%;
-    margin: 10px 0px 0px 0px;
-    /* bordes redondeados*/
-    border-radius: 35px 36px 38px 36px;
-    -moz-border-radius: 35px 36px 38px 36px;
-    -webkit-border-radius: 35px 36px 38px 36px;
-     border: 0px ridge #3220a8;
-   
-
-}
 #content{
          align-content: center;
          margin-left: 150px;
          margin-top: 20px;
          width: 1000px;
          height: 450px;
-        }
+         background:#dddddd;
+         /*Bordes redondeados*/
+         border-radius: 15px 15px 15px 15px;
+         -moz-border-radius: 15px 15px 15px 15px;
+         -webkit-border-radius: 15px 15px 15px 15px;
+         border: 0px ridge #3220a8;
+}
+
 #left {
     float: left;
     background-color: #ece3a5;
@@ -54,11 +46,7 @@
     background-color: #828a87; 
         /*#339973;*/
     padding: 5px;
-    /* bordes redondeados*/
-    border-radius: 10px 10px 10px 10px;
-   -moz-border-radius: 10px 10px 10px 10px;
-   -webkit-border-radius: 10px 10px 10px 10px;
-   border: 0px ridge #3220a8;
+   
    
    
 }
@@ -86,5 +74,7 @@
   font-weight : bold;
   text-decoration : underline;
 }
+
+
 
 }
