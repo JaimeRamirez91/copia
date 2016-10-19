@@ -1,6 +1,8 @@
 
 package com.entidades;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -47,6 +50,10 @@ public class Producto implements Serializable{
     @OneToOne(cascade=CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private DetalleProducto detalleproducto;
+   
+    //relacion con detalle factura
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+    private Set<DetalleFactura> detallefactura = new HashSet<DetalleFactura>(0);
    
     public Producto(){
     

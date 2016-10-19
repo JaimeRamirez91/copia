@@ -10,10 +10,10 @@
         <!--  Solucion al problema de f5 y cuando dejan de funcional los js y los menus dinamicos(para dispositivos moviles)-->
         <meta http-equiv="refresh" content="URL=#"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
         <h:outputStylesheet name="./css/normalize.css"/>
         <h:outputStylesheet name="./css/default.css"/>
         <h:outputStylesheet name="./css/cssLayout.css"/>
+        <h:outputLink  />
 
         <title> Sistema de Facturación</title> 
     </h:head>
@@ -28,28 +28,23 @@
             <div id="menu">
                 <ui:insert name="menu" >
                     <h:form>  
-                        <p:menubar style="font-size: 13px;
-                                   font-family: Verdana, 'Verdana CE',  Arial, 'Arial CE', 'Lucida Grande CE', lucida, 'Helvetica CE', sans-serif;
-                                   color: #000000;  
-                                   margin: 1px;
-                                   background-position: center center;">
+                        <p:menubar styleClass="menu" >
 
-                            <p:submenu label="Inicio" icon="ui-icon-home" >
-                                <p:menuitem value="Ir inico"  icon="ui-icon-home" outcome="/Vistas/Inicio/Inicio.xhtml"/>
-
+                            <p:submenu label="Inicio" icon="" >
+                                <p:menuitem value="Ir inico"  icon="" outcome="/Vistas/Inicio/Inicio.xhtml?faces-redirect=true"/>
                             </p:submenu>
 
 
-                            <p:submenu label="Ventas" icon="ui-icon-home" >
-                                <p:menuitem value="Facturación"  icon="ui-icon-home" outcome="/Vistas/Ventas/Factura.xhtml"/>
+                            <p:submenu label="Ventas" icon="" >
+                                <p:menuitem value="Facturación"  icon="" outcome="/Vistas/Ventas/Factura.xhtml"/>
 
                             </p:submenu>
 
-                            <p:submenu label="Administración"  icon="ui-icon-wrench" >
-                                <p:menuitem value="Producto"  icon="ui-icon-wrench" outcome="/Vistas/Producto/Producto.xhtml"/>
-                                <p:menuitem value="Categorias"  icon="ui-icon-wrench" outcome="/Vistas/Categorias/Categorias.xhtml"/>
-                                <p:menuitem value="Clientes"  icon="ui-icon-wrench" outcome="/Vistas/Clientes/Clientes.xhtml"/>
-                                <p:menuitem value="Proveedor"  icon="ui-icon-wrench" outcome="/Vistas/Proveedor/Proveedor.xhtml"/>
+                            <p:submenu label="Administración"  icon="" >
+                                <p:menuitem value="Producto" icon="" outcome="/Vistas/Producto/Producto.xhtml"/>
+                                <p:menuitem value="Categorias"  icon="" outcome="/Vistas/Categorias/Categorias.xhtml"/>
+                                <p:menuitem value="Clientes"  icon="" outcome="/Vistas/Clientes/Clientes.xhtml"/>
+                                <p:menuitem value="Proveedor"  icon="" outcome="/Vistas/Proveedor/Proveedor.xhtml"/>
                             </p:submenu>
                         </p:menubar>
                     </h:form>

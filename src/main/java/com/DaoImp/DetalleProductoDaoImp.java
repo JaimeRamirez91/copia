@@ -7,6 +7,7 @@ import com.entidades.DetalleProducto;
 import com.entidades.Producto;
 import com.entidades.Proveedor;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -100,6 +101,14 @@ public class DetalleProductoDaoImp implements DetalleProductoDao {
                 session.close();
             }
         }
+    }
+
+    @Override
+    public Producto obtenerProducto(Session session, String codBarra) throws Exception {
+        String hql = "FROM Producto WHERE proCodigoBarra = :proCodigoBarra";
+        Query q = session.createQuery(hql);
+        q.setParameter("proCodigoBarra",codBarra);
+        return (Producto) q.uniqueResult();
     }
 
 }

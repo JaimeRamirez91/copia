@@ -16,5 +16,9 @@
     <mapping class="com.entidades.Proveedor"/>
     <mapping class="com.entidades.Categoria"/>
     <mapping class="com.entidades.DetalleProducto"/>
+     <mapping class="com.entidades.Factura"/>
+      <mapping class="com.entidades.DetalleFactura"/>
+      <mapping class="com.entidades.Tipo"/>
+      <mapping class="com.entidades.Usuarios"/>
   </session-factory>
 </hibernate-configuration>

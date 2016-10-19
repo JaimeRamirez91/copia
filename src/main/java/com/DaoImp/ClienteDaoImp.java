@@ -15,7 +15,7 @@ public class ClienteDaoImp implements ClienteDao{
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
         try {
-            lista = session.getNamedQuery("clientes.Lista").list();
+            lista = session.getNamedQuery("Usr.Login").setParameter("alias", "jaime").setParameter("passUsr", "123").list();
             t.commit();
 
             session.close();

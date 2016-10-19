@@ -24,7 +24,7 @@
                         <p:layout id="capaDatosClienteFactura" styleClass="datosClienteFactura"  >
                             <p:layoutUnit id="DatosCliente" styleClass="datosCliente" position="center" >
                                 <p:panelGrid  id="GridBuscarDatosCliente" columns="8">
-                                     <p:outputLabel value="Codigo cliente:"/> 
+                                     <p:outputLabel value="Código cliente:"/> 
                                      <p:inputText id="txtBuscarCliente" value="#{clientebeen.codigoCliente}" size="12" >
                                     </p:inputText>
                                      <p:commandButton value="Buscar" actionListener= "#{clientebeen.agregarDatosCliente2()}" styleClass="btnModificar"  resetValues="true" update=":formFacturas:gridDatosCliente  "/>
@@ -52,29 +52,30 @@
                             </p:layoutUnit>
                         </p:layout>
                         <p:panelGrid columns="4">
-                            <p:outputLabel value="Codigo de barrra:"/>
+                            <p:outputLabel value="Código de barrra:"/>
                             <p:inputText  size="12"/>
                             <p:commandButton value="Buscar" styleClass="btnModificar"/>
                             <p:commandButton value="...." styleClass="btnModificar" oncomplete="PF('dialogoProducto').show();" />
                         </p:panelGrid>
                         <p:separator/>
-                        <p:dataTable id="tablaProductos"  var="producto" value="#{ventasbeen.listaproducto}" 
+                        
+                        <p:dataTable id="tablaProductos"  var="producto" value="#{ventasbeen.listadetallefactura}"
                                      rowStyleClass="ejemplo, ejemplo2"  emptyMessage="No se han encontrado registros.">
                             <f:facet name="header">
                                 <h:outputText value="Productos" style="color: white;" />
                             </f:facet>
-                            <p:column headerText="Codigo de barra" >
+                            <p:column headerText="Código de barra" >
                                 
-                                <h:outputText value="#{producto.proCodigoBarra}"/>
+                                <h:outputText value="#{producto.producto.proCodigoBarra}"/>
                             </p:column>
                             <p:column headerText="Producto">
-                                <h:outputText value="#{producto.proNombre}"/>
+                                <h:outputText value="#{producto.producto.proNombre}"/>
                             </p:column>
                             <p:column headerText="Cantidad">
-
+                                 <h:outputText value=" 1/u "/>
                             </p:column>
                             <p:column headerText="Precio venta">
-
+                                <h:outputText value="#{producto.producto.proPrecio}"/>
                             </p:column>
                             <p:column headerText="Total">
 
@@ -133,23 +134,23 @@
                         
 
                         <p:dataTable id="tablaProdAUX" paginator="true" paginatorPosition="top" style="width: 700px;" 
-                                     var="pro" value="#{ventasbeen.listaproducto}" rows="5"
+                                     var="pro" value="#{DetalleProductoBeen.listadelatte}" rows="5"
                                      >
                              <f:facet name="header">
                                 <h:outputText value="Producto" style="color: white;" />
                             </f:facet>
                             <p:column headerText="N°">
-                                <h:outputText value="#{pro.proCodigoBarra}"/>
+                                <h:outputText value="#{pro.producto.idProducto}"/>
                             </p:column>
                             <p:column headerText="Nombre">
-                                <h:outputText value="#{pro.proNombre}"/>
+                                <h:outputText value="#{pro.producto.proNombre}"/>
                             </p:column>
                             <p:column headerText="Precio">
-                                <h:outputText value="#{pro.proPrecio}"/>
+                                <h:outputText value="#{pro.producto.proPrecio}"/>
                             </p:column>
                             <p:column headerText="Seleccionar">
-                                <p:commandButton value="Seleccionar" styleClass="btnModificar" actionListener="#{ventasbeen.listaproducto.add(pro)}"
-                                                 oncomplete="PF('dialogoProducto').hide();"
+                                <p:commandButton value="Seleccionar" styleClass="btnModificar" actionListener="#{ventasbeen.agregarDatosProducto(pro.producto.proCodigoBarra)}"
+                                                 onclick= "PF('dialogoProducto').hide();"
                                                  update=":formFacturas:tablaProductos">
 
                                 </p:commandButton>
