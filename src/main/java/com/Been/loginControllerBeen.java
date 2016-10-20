@@ -48,11 +48,9 @@ public class loginControllerBeen implements Serializable{
         String ruta = "";
         LoginDao uDao = new LoginDaoImp();
         this.usr = uDao.Login(this.usr);
-        System.out.println("----------------------------------");
-        System.out.println(usr.getAliass());
-        System.out.println("----------------------------------");
         if(usr != null) {
             loggedIn = true;
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", this.usr.getAliass());
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
             //Es de JSF 
             ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
@@ -67,8 +65,8 @@ public class loginControllerBeen implements Serializable{
          
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("loggedIn", loggedIn);
-      //se usaria si utilizo escrip JQuery  
-      //  context.addCallbackParam("ruta", ruta);
+       //se usaria si utilizo escrip JQuery  
+       // context.addCallbackParam("ruta", ruta);
     }  
     /*    Este es de internet
     public void logout() throws IOException {
@@ -85,6 +83,8 @@ public class loginControllerBeen implements Serializable{
         httpSession.invalidate();
         //Es de JSF 
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        ec.invalidateSession();
         ec.redirect(ec.getRequestContextPath());
     }
 

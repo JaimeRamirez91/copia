@@ -24,12 +24,13 @@
                             <h:outputText value = "Contraseña:"/>
                             <p:password value = "#{login.usr.passUsr}"/>
                             <f:facet name="footer"> 
-                                <p:commandButton value="Login"  update="frmLogin" styleClass="btnModificar" 
+                                <p:commandButton  id="btn" value="Login"  update="frmLogin" styleClass="btnModificar" 
                                                  action="#{login.login(event)}"  oncomplete="handleLoginRequest(xhr, status, args)"/> 
                             </f:facet>
                         </p:panelGrid>
                     </p:panel>
                 </h:form>
+              
                 <!--Script para el inicio de cession-->
                 <script type="text/javascript">
                     function handleLoginRequest(xhr, status, args) {
