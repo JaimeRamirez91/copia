@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Sistema?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">rv10i04001</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.format_sql">true</property>
-    <property name="hibernate.current_session_context_class">thread</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="com.entidades.Clientes"/>
-    <mapping class="com.entidades.Producto"/>
-    <mapping class="com.entidades.Proveedor"/>
-    <mapping class="com.entidades.Categoria"/>
-    <mapping class="com.entidades.DetalleProducto"/>
-     <mapping class="com.entidades.Factura"/>
-      <mapping class="com.entidades.DetalleFactura"/>
-      <mapping class="com.entidades.Tipo"/>
-      <mapping class="com.entidades.Usuarios"/>
-  </session-factory>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Sistema?zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">rv10i04001</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="com.entidades.Clientes"/>
+        <mapping class="com.entidades.Producto"/>
+        <mapping class="com.entidades.Proveedor"/>
+        <mapping class="com.entidades.Categoria"/>
+        <mapping class="com.entidades.DetalleProducto"/>
+        <mapping class="com.entidades.Factura"/>
+        <mapping class="com.entidades.DetalleFactura"/>
+        <mapping class="com.entidades.Tipo"/>
+        <mapping class="com.entidades.Usuarios"/>
+    </session-factory>
 </hibernate-configuration>

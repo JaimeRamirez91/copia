@@ -1,11 +1,7 @@
 
 package com.CalsesAuxiliares;
 
-import com.entidades.Usuarios;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.faces.application.NavigationHandler;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;

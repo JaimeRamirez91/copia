@@ -25,22 +25,6 @@ public class loginControllerBeen implements Serializable{
         
     }
     
-    public String getUsername() {
-        return username;
-    }
- 
-    public void setUsername(String username) {
-        this.username = username;
-    }
- 
-    public String getPassword() {
-        return password;
-    }
- 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-   
     public void login(ActionEvent event) throws IOException{
         RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage message = null;
@@ -50,23 +34,20 @@ public class loginControllerBeen implements Serializable{
         this.usr = uDao.Login(this.usr);
         if(usr != null) {
             loggedIn = true;
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", this.usr.getAliass());
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", this.usr);
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienbenido: ", username);
             //Es de JSF 
             ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
             ec.redirect(ec.getRequestContextPath()+"/faces/Vistas/Inicio/Inicio.xhtml");
-            //se usaria si utilizo escrip JQuery  
-            // ruta = "/mavenproject1/faces/Vistas/Inicio/Inicio.xhtml";
+           
         } else {
             loggedIn = false;
-            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
-            this.usr = new Usuarios();
+            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de logue", "Usuario/Password incorrectos ");
+           this.usr = new Usuarios();
         }
          
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("loggedIn", loggedIn);
-       //se usaria si utilizo escrip JQuery  
-       // context.addCallbackParam("ruta", ruta);
     }  
     /*    Este es de internet
     public void logout() throws IOException {
@@ -88,6 +69,22 @@ public class loginControllerBeen implements Serializable{
         ec.redirect(ec.getRequestContextPath());
     }
 
+     public String getUsername() {
+        return username;
+    }
+ 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+ 
+    public String getPassword() {
+        return password;
+    }
+ 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+   
     public Usuarios getUsr() {
         return usr;
     }

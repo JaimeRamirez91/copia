@@ -10,39 +10,32 @@
 
         <ui:composition template="./../../Template/InicioBase.xhtml">
             <ui:define name="top">
-
             </ui:define> 
             <ui:define name="Login" >
-                <p:growl  id="growl" sticky="true" showDetail="true"/>
-
-                <h:form  id="frmLogin" style="align-content: center !important; ">
+                <h:form  id="frmLogin" styleClass="formularios">
+                    <p:growl id="growl"   showDetail="true" autoUpdate="true" life="3000"></p:growl>
                     <p:panel  style=" width: 400px; height: 200px; margin: 0 auto; margin-top: 10%;">
                         <f:facet name="header" class="header">Inicio de Sesión</f:facet>
+                        <!-- Style color: black , soluciona el bug de texto blanco.. usando el msj--> 
                         <p:panelGrid columns="2" style=" width: 350px; height: 90px; margin: 0 auto; margin-top: 3%;">
                             <h:outputText value = "Usuario:"/>
-                            <p:inputText value = "#{login.usr.aliass}"/>
+                            <p:inputText  id="prue" value = "#{login.usr.aliass}" style="color: black;" required="true" requiredMessage="Campo requerido, Usuario."/>
                             <h:outputText value = "Contraseña:"/>
-                            <p:password value = "#{login.usr.passUsr}"/>
-                            <f:facet name="footer"> 
-                                <p:commandButton  id="btn" value="Login"  update="frmLogin" styleClass="btnModificar" 
-                                                 action="#{login.login(event)}"  oncomplete="handleLoginRequest(xhr, status, args)"/> 
-                            </f:facet>
+                            <p:password value = "#{login.usr.passUsr}" required="true" style="color: black;"  requiredMessage="Campo requerido, Contraseña."/>  
                         </p:panelGrid>
-                    </p:panel>
-                </h:form>
-              
-                <!--Script para el inicio de cession-->
-                <script type="text/javascript">
-                    function handleLoginRequest(xhr, status, args) {
-                        if (args.validationFailed || !args.loggedIn) {
-                            jQuery('#formLogin').effect("shake", {times: 5}, 1000);
-                        } else {
-                            location.href = args.ruta;
-                        }
-                    }
-                </script>
-            </ui:define>
+                        <p:separator/>
+                        <p:commandButton  id="btn" value="Login"  update="frmLogin" styleClass="btnModificar" action="#{login.login(event)}" >
+                            <p:effect type="puff" event="click" for="img">
+                                <f:param name="mode" value="'btn'" />
+                            </p:effect>
+                        </p:commandButton>  
 
+                    </p:panel>
+                    <center>
+                    <p:graphicImage id="img" name="/images/loader.gif" style="display:none; margin-top: 50px;" />
+                    </center>
+                </h:form>
+            </ui:define>
         </ui:composition>
     </body>
 </html>

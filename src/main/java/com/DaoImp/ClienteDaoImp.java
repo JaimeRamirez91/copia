@@ -10,12 +10,12 @@ import org.hibernate.Transaction;
 public class ClienteDaoImp implements ClienteDao{
 
     @Override
-    public List<Clientes> listaClientes() {
-        List<Clientes> lista = null;
+   public List<Clientes> listaClientes() {
+    List<Clientes> lista = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
         try {
-            lista = session.getNamedQuery("Usr.Login").setParameter("alias", "jaime").setParameter("passUsr", "123").list();
+            lista = session.getNamedQuery("clientes.Lista").list();
             t.commit();
 
             session.close();
@@ -26,6 +26,7 @@ public class ClienteDaoImp implements ClienteDao{
         return lista;
        
     }
+
 
     @Override
     public Clientes obtenerClientPorCodigo(Session session, Integer codCliente) throws Exception {
