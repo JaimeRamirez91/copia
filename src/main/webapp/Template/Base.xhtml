@@ -21,6 +21,7 @@
     </h:head>
 
     <h:body>
+        
         <div id="Divgeneral">
             <div id="top" >
                 <ui:insert name="top">
@@ -30,34 +31,14 @@
             <div id="menu">
                 <ui:insert name="menu" >
                     <h:form>  
-                        <p:menubar styleClass="menu" >
-
-                            <p:submenu label="Inicio" icon="" >
-                                <p:menuitem value="Ir inico"  icon="" outcome="/Vistas/Inicio/Inicio.xhtml?faces-redirect=true"/>
-                            </p:submenu>
-
-
-                            <p:submenu label="Ventas" icon="" >
-                                <p:menuitem value="Facturación"  icon="" outcome="/Vistas/Ventas/Factura.xhtml"/>
-
-                            </p:submenu>
-
-                            <p:submenu label="Administración"  icon="" >
-                                <p:menuitem value="Producto" icon="" outcome="/Vistas/Producto/Producto.xhtml"/>
-                                <p:menuitem value="Categorias"  icon="" outcome="/Vistas/Categorias/Categorias.xhtml"/>
-                                <p:menuitem value="Clientes"  icon="" outcome="/Vistas/Clientes/Clientes.xhtml"/>
-                                <p:menuitem value="Proveedor"  icon="" outcome="/Vistas/Proveedor/Proveedor.xhtml"/>
-                            </p:submenu>
+                        <p:menubar styleClass="menu"  model="#{menuBeen.model}">
                         </p:menubar>
                     </h:form>
                 </ui:insert>
             </div>
-
             <div id="content" class="contenido">
                 <ui:insert name="content">Content</ui:insert>
             </div>
-
-
         </div>
     </h:body>
 

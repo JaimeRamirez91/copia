@@ -20,5 +20,6 @@
         <mapping class="com.entidades.DetalleFactura"/>
         <mapping class="com.entidades.Tipo"/>
         <mapping class="com.entidades.Usuarios"/>
+        <mapping class="com.entidades.Menu"/>
     </session-factory>
 </hibernate-configuration>
